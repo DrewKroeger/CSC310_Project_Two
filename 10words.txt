@@ -1,0 +1,10 @@
+market	151
+wren	286
+brown	410
+oafish	289
+imported	424
+accurate	292
+mug	540
+collect	146
+incandescent	83
+nondescript	139
