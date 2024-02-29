@@ -19,38 +19,46 @@ public class BinarySearchTree
 
     public void addValue(String key, int value)
     {
-        Node newNode = new Node();    // make new node
-        newNode.key = key;           // insert data
-        newNode.value = value;
-        if(root==null)                // no node in root
-           root = newNode;
-        else                          // root occupied
-           {
-           Node current = root;       // start at root
-           Node parent;
-           while(true)                // (exits internally)
-              {
-              parent = current;
-              if(key.compareToIgnoreCase(current.key) < 0)  // go left
-                 {
-                 current = current.leftChild;
-                 if(current == null)  // if end of the line,
-                    {                 // insert on left
-                    parent.leftChild = newNode;
-                    return;
-                    }
-                 }  // end if go left
-              else                    // or go right
-                 {
-                 current = current.rightChild;
-                 if(current == null)  // if end of the line
-                    {                 // insert on right
-                    parent.rightChild = newNode;
-                    return;
-                    }
-                 }  // end else go right
-              }  // end while
-           }  // end else not root
+      Node newNode = new Node();    // make new node
+      newNode.key = key;           // insert data
+      newNode.value = value;
+
+
+      if(root==null)// no node in root
+      {                
+         root = newNode;
+      }
+      else                          // root occupied
+      {
+         Node current = root;       // start at root
+         Node parent;
+         while(true)                // (exits internally)
+         {
+            parent = current;
+            if(key.compareToIgnoreCase(current.key) < 0)  // go left
+            {
+               current = current.leftChild;
+               if(current == null)  // if end of the line,
+               {                 // insert on left
+                  parent.leftChild = newNode;
+                  return;
+               }
+            }  // end if go left
+            else if (key.compareToIgnoreCase(current.key) > 0)                    // or go right
+            {
+               current = current.rightChild;
+               if(current == null)                     // if end of the line
+               {                                      // insert on right
+                  parent.rightChild = newNode;
+                  return;
+               }
+            }  // end else go right
+            else                                           //if the words are equal, then we just dont add the second one in the three
+            {
+               return;
+            }
+         }  // end while
+      }  // end else not root
     }//end of addvalue method
 
 
